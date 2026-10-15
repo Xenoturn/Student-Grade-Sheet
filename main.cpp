@@ -5,11 +5,12 @@ using namespace std;
 
 int main(){
     
-    string name;
+    /*string name;
     string course = "Algebra";
     int credits = 0;
     double gradePts = 4.0;
-    double TotalPts = 12.0;
+    double TotalPts = 12.0;*/
+    
     //test code
     Course c("MATH 141", 4, "A-");
     cout << c.getgradePts() << endl;    
