@@ -3,6 +3,8 @@
 #include "Course.H"
 using namespace std;
 
+//THIS IS FAR FROM THE FINAL VERSION
+
 int main(){
     
     /*string name;
