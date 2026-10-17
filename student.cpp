@@ -5,17 +5,17 @@
 
 using namespace std;
 
-// using constructor to set up the student 
+//using constructor to set up the student 
 Student::Student(string studentName) {
     name = studentName;
 }
 
-// using push_back to add a new course to the vector
+//using push_back to add a new course to the vector
 void Student::addCourse(const Course& course) {
     courses.push_back(course);
 }
 
-// using the loop to go though the course and to add up the credits 
+//using the loop to go though the course and to add up the credits 
 int Student::getTotalCredits() const {
     int totalCreds = 0;
     for (const auto& c : courses) {
@@ -42,7 +42,7 @@ double Student::getGPA() const {
     return getTotalPoints() / totalCreds;
 }
 
-// checking gpa to see the students standing 
+//checking gpa to see the students standing 
 string Student::getStanding() const {
     double gpa = getGPA();
     if (gpa >= 3.70) {
@@ -56,12 +56,12 @@ string Student::getStanding() const {
 
 
 void Student::printReport() const {
-    cout << fixed << setprecision(2); // setting floating-point numbers to 2 decimal places
+    cout << fixed << setprecision(2); //setting floating-point numbers to 2 decimal places to fit regular GPA regulations
     
-    cout << "\n==================== Student Grade Report ====================\n";
-    cout << "Student:  " << name << "\n\n";
+    cout << "\n==================== John Jay Student Grade Report ====================\n";
+    cout << "Student:  " << name << "\n";
     
-    // setting fixed column widths and alignment for the table headers
+    //using the manip library to properly structure the report
     cout << left << setw(30) << "Course" 
          << right << setw(10) << "Credits" 
          << setw(12) << "GradePts" 
@@ -79,30 +79,20 @@ void Student::printReport() const {
     
     cout << "-------------------------------------------------------------\n";
     
-    // printing summary totals and final standing 
-    cout << left << setw(30) << "Total Credits:" 
-         << right << setw(10) << getTotalCredits() << "\n";
+    //printing summary totals and final standing to the user
+    cout << left << setw(30) << "Total Credits:"  << right << setw(10) << getTotalCredits() << "\n";
               
-    cout << left << setw(30) << "Total Points:" 
-         << right << setw(10) << getTotalPoints() << "\n";
+    cout << left << setw(30) << "Total Points:" << right << setw(10) << getTotalPoints() << "\n";
               
-    cout << left << setw(30) << "Semester GPA:" 
-         << right << setw(10) << getGPA() << "\n";
+    cout << left << setw(30) << "Semester GPA:" << right << setw(10) << getGPA() << "\n";
               
-    cout << left << setw(30) << "Standing:" 
-         << right << setw(10) << getStanding() << "\n";
+    cout << left << setw(30) << "Standing:"  << right << setw(10) << getStanding() << "\n";
               
     cout << "=============================================================\n";
 }
 
-// using sort to arrange courses by credit hours in descending order
-void Student::sortCoursesByCreditsDesc() {
-    sort(courses.begin(), courses.end(), [](const Course& a, const Course& b) {
-        return a.getCredits() > b.getCredits();
-    });
-}
+//Extra credit: using the algorithm library to sort the courses by alphabetical order in ascending order
 
-// using sort to arrange courses in abc order by name
 void Student::sortCoursesByNameAsc() {
     sort(courses.begin(), courses.end(), [](const Course& a, const Course& b) {
         return a.getcourseName() < b.getcourseName();
